@@ -1,6 +1,8 @@
 # strayr-k-macros
 Some useful macros for Klipper
 
+## WARNING
+- DO NOT just copy one macro from here without understanding it and expect it to work, it likely calls other macros within this suite to avoid code duplication. I made extensive use of the `[save_variables]` functionality in lieu of a good config file.
 ## Features
 
 - Intelligent pause/park system that determines a safe park position from the toolhead height and your config.
@@ -52,6 +54,11 @@ once you have the macros in place you with to use, run the follow extended gcode
 FIRMWARE_RESTART
 _INIT_ALL
 ```
+
+## Interdependent Code
+- I plan on making some of the simpler features standalone single file includes rather than a big web of code. This will likely be tagged version 0.2 and `save_variables.cfg`'s version checks will be incremented to deliberatey make you check things over.
+- We really do need a way of saving some state so `save_variables.cfg` isn't going away.
+
 
 ## Mechanical Gantry Calibration
 
