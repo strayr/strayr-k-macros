@@ -3,13 +3,18 @@ Some useful macros for Klipper
 
 ## WARNING
 - DO NOT just copy one macro from here without understanding it and expect it to work, it likely calls other macros within this suite to avoid code duplication. I made extensive use of the `[save_variables]` functionality in lieu of a good config file.
+
+## Alternatives
+- MainsailOS ships with this config that uses the same pause/park mechanic, if you just want that then maybe look there instead? https://github.com/mainsail-crew/MainsailOS/blob/master/src/modules/mainsail/filesystem/home/pi/klipper_config/mainsail.cfg
+
+
 ## Features
 
 - Intelligent pause/park system that determines a safe park position from the toolhead height and your config.
 - Automated load/unload/M600 system that uses a few simple measurements stored in a separate file that isn't hosed when you update
 - Mesh and bed offset helper macros that make printing at different temperatures and swapping build surfaces fast and painless. Just tell the printer which bed you put in or if you want ot rebuild the mesh
 - Musical M300 system that informs you of the state of the printer by audio cue
-- Optional M204 replacement that treats acceleration settings defined in your config as hard limits
+- Optional M204 replacement that treats acceleration settings defined in your config as hard limits **This can cause issues if you have a lot of acceleration changes close together** I've noticed this printing fine detail with a lot of z-hops on the first layer, wherein every z-hop hoest though 1st layer and travel acceleration settings in both directions, and some slicers are smart enough to set these accelerations anyway even when there is no change. I think it's an issue with `ACCEL_TO_DECEL` making huge changes, but I think it's better to set one acceleration that looks good in klipper and leave it.
 - Prusa style G34 that can tram a dual-stepper single driver gantry, requires UART/SPI control of stepper driver current and some tuning.
 - Braindead manual levelling of a dual stepper gantry
 - Optional M84 and idle timeout that allows you to shut off all steppers except the Z so you don't lose your gantry level and gave to keep repeating G34
