@@ -70,3 +70,6 @@ _INIT_ALL
 - please read the comments at the top of each file before use.
 - `mechanical_level_tmc2209.cfg` requires the capability to set stepper currents with SET_TMC_CURENT, and may need additional physical endstops. Improper use may cause **expensive damage**. It's in use on my Ender 3 derived printer but please read the comments at the top of the file and watch the video before use. **You have been warned** https://www.youtube.com/watch?v=aVdIeIIpUAk
 - `mechanical_level_stupid.cfg` is a bad idea and shoud not be used unless you've read it, understood it, know it can break your printer and are willing to do so. JUST DON'T.
+
+## Sample configs
+- Requests have been made for example configs, my daily driver printer configs are a bit of a mess, but you're welcome to browse snapshots of what i've been using for your own reference in strayr/[sample_klipper_configs](https://github.com/strayr/sample_klipper_configs)
