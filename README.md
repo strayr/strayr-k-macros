@@ -14,11 +14,14 @@ Some useful macros for Klipper
 - Automated load/unload/M600 system that uses a few simple measurements stored in a separate file that isn't hosed when you update
 - Mesh and bed offset helper macros that make printing at different temperatures and swapping build surfaces fast and painless. Just tell the printer which bed you put in or if you want ot rebuild the mesh
 - Musical M300 system that informs you of the state of the printer by audio cue
-- Optional M204 replacement that treats acceleration settings defined in your config as hard limits **This can cause issues if you have a lot of acceleration changes close together** I've noticed this printing fine detail with a lot of z-hops on the first layer, wherein every z-hop hoest though 1st layer and travel acceleration settings in both directions, and some slicers are smart enough to set these accelerations anyway even when there is no change. I think it's an issue with `ACCEL_TO_DECEL` making huge changes, but I think it's better to set one acceleration that looks good in klipper and leave it.
+- Optional M204 replacement that treats acceleration settings defined in your config as hard limits **This can cause issues if you have a lot of acceleration changes close together** I've noticed this printing fine detail with a lot of z-hops on the first layer, wherein every z-hop hoest though 1st layer and travel acceleration settings in both directions, and some slicers are smart enough to set these accelerations anyway even when there is no change. ~~I think it's an issue with `ACCEL_TO_DECEL` making huge changes, but I think it's better to set one acceleration that looks good in klipper and leave it.~~ Orca slicer shows that setting ACCEL_TO_DECEL doesn't cause the same problem, it looks like it was repeated macro calls that were hurting.
 - Prusa style G34 that can tram a dual-stepper single driver gantry, requires UART/SPI control of stepper driver current and some tuning.
 - Braindead manual levelling of a dual stepper gantry
 - Optional M84 and idle timeout that allows you to shut off all steppers except the Z so you don't lose your gantry level and gave to keep repeating G34
 - Optional slimmed down menu
+- setup_macros.cfg aliases voron style PRINT_START to START_PRINT and checks for voron style parameters as well as klipper style giving more
+flexability with gcode generators. 
+- Extensive bed offset management, can input new beds from the console and can auto adjust all beds after a nozzle change.
 
 ## Installation
 
@@ -70,3 +73,9 @@ _INIT_ALL
 - please read the comments at the top of each file before use.
 - `mechanical_level_tmc2209.cfg` requires the capability to set stepper currents with SET_TMC_CURENT, and may need additional physical endstops. Improper use may cause **expensive damage**. It's in use on my Ender 3 derived printer but please read the comments at the top of the file and watch the video before use. **You have been warned** https://www.youtube.com/watch?v=aVdIeIIpUAk
 - `mechanical_level_stupid.cfg` is a bad idea and shoud not be used unless you've read it, understood it, know it can break your printer and are willing to do so. JUST DON'T.
+
+## Bed Offset
+
+This is relatively stand alone, you need to set up [save_variables] and add a line to your START_PRINT and END_PRINT macros.
+
+You may benefit from having the PROBE_CALIBRATE menu items in improved_menu.cfg set up so you can run all that from the screen.
