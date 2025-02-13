@@ -43,7 +43,7 @@ Add this to printer.cfg
 ```
 [include strayr-k-macros/common.cfg] 
 [save_variables]
-#set this filename and path to somewhere convenient. Assumes your config lives in ~/klipper_config, it might be in ~/ or elsewhere
+#set this filename and path to somewhere convenient. Assumes your config lives in ~/klipper_config, it might be in ~/ or elsewhere. You will need to create this as an empty file.
 filename: ~/printer_data/config/printer_variables.cfg
 
 [include strayr-k-macros/setup_macros.cfg] # this includes start print, cancel print etc, intended for bedslingers, if you need changes, copy it to your config folder and include your local version instead.
