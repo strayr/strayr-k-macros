@@ -1,4 +1,4 @@
-# strayr-k-macros
+# k-macros
 Some useful macros for Klipper
 
 ## WARNING
