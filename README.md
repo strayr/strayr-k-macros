@@ -1,6 +1,10 @@
 # k-macros
 Some useful macros for Klipper
 
+## Project Archived
+
+I've been uisng less and less of this in my own dogfooding as my printers get more specialised and look less like an i3. I don't run anything that looks like an i3 anymore. I'll try to break out useful features into one-file-per-function layouts and publish them.
+
 ## WARNING
 - DO NOT just copy one macro from here without understanding it and expect it to work, it likely calls other macros within this suite to avoid code duplication. I made extensive use of the `[save_variables]` functionality in lieu of a good config file
 
@@ -9,7 +13,7 @@ Some useful macros for Klipper
 
 ## Future Plans
 
-I have got a bit behind on releases, my life has got in the way a bit. I've just got one slow but enclosed i3 style and one fast but open core XZ bed dropper running at the moment and I'm working to change that. What I'm actually running as a daily driver is in the 'dogfood' branch, changes are largley undocumented.
+~~I have got a bit behind on releases, my life has got in the way a bit. I've just got one slow but enclosed i3 style and one fast but open core XZ bed dropper running at the moment and I'm working to change that. What I'm actually running as a daily driver is in the 'dogfood' branch, changes are largley undocumented.~~
 
 I'm interested in modularising and separating the code so the parts that stand alone as useful segments can be integrated into other projects that enhance the usability of klipper. 
 
